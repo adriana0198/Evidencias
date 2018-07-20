@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View} from 'react-native';
+import { RutasNoAutenticadas } from './Componentes/NoAutenticados/RutasNoAutenticadas';
 
 export default class App extends React.Component {
   constructor(){
@@ -13,7 +10,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app! </Text>
+      <RutasNoAutenticadas/>
       </View>
     );
   }
@@ -22,8 +19,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
 });
