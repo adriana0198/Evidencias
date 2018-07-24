@@ -1,50 +1,29 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StyleSheet,  Text, View } from 'react-native';
+import { RutasNoAutenticadas } from './Componentes/NoAutenticados/RutasNoAutenticadas';
+import { RutasAutenticadas } from './Componentes/Autenticadas/RutasAutenticadas ';
 
-const SignIn = (props) => {
-    console.log(props);
-    const { navigation } = props;
-    return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-            <Text>Componente SignIn</Text>
-            <Button
-            title="Navegar SignUp"
-            onPress={() => {
-             navigation.navigate('SignUp');
-            }}
-            />
+
+console.disableYellowBox = ['Remote debugger'];
+
+export default class App extends React.Component {
+    constructor() {
+        super();
+        this.state = { nombre: 'instagram-clone' };
+    }
+    render(){
+        return (
+        <View style={styles.container}>
+            <RutasAutenticadas/>
         </View>
-    );
-};
-const SignUp = (props) => {
-    const { navigation } = props;
-    return(
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-           <Text>Componente SignUp</Text>
-           <Button
-            title='Regresar'
-            onPress={() => 
-           { navigation.goBack();
-            }}
-            />
-        </View>
-    );
-};
+        );
+    }
+}
 
-const RutasNoAutenticadas = StackNavigator({
-  SignIn: {
-    screen: SignIn,
-    
-},
-SignUp: {
-    screen:SignUp,
-},
-},
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        backgroundColor: '#fff',
 
-{
-  headerMode: 'none',
-   },
-);
-
-export { RutasNoAutenticadas };
+    },
+});
